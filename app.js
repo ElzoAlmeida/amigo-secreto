@@ -29,7 +29,9 @@ function atualizaLista() {
 
 function sortearAmigo() {
     if (listaSorteio == '') {
-        alert('Adicione amigos para sortear');        ;
+        alert('Adicione amigos para sortear');        
+    } else if (listaSorteio.length < 2 ) {
+        alert ('Sorteio com no minimo 2 amigos');
     } else {
         let sorteio = Math.floor(Math.random() * listaSorteio.length);
         let amigoSorteado = document.createElement('li');
@@ -40,4 +42,10 @@ function sortearAmigo() {
 
 function limpaCampo() {
     addAmigo.value = '';
+}
+
+function novoSorteio() {
+    listaResultado.innerText = '';
+    listaSorteio = [];
+    atualizaLista();
 }
