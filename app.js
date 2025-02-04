@@ -3,6 +3,8 @@
 let listaSorteio = [];
 let addAmigo = document.getElementById('amigo');
 let lista = document.getElementById('listaAmigos');
+let listaResultado = document.getElementById('resultado');
+
 
 function adicionarAmigo() {
     let getAmigo = addAmigo.value;
@@ -25,8 +27,17 @@ function atualizaLista() {
     limpaCampo();
 }
 
+function sortearAmigo() {
+    if (listaSorteio == '') {
+        alert('Adicione amigos para sortear');        ;
+    } else {
+        let sorteio = Math.floor(Math.random() * listaSorteio.length);
+        let amigoSorteado = document.createElement('li');
+        amigoSorteado.innerText = listaSorteio[sorteio];
+        listaResultado.appendChild(amigoSorteado);
+    }
+}
 
 function limpaCampo() {
     addAmigo.value = '';
 }
-
